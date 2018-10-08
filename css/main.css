@@ -1,3 +1,9 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 html, body{
     width: 100vw;
     height: 100vh;
@@ -21,13 +27,14 @@ a:hover{
 #topbar {
     position: fixed;
     z-index: 99;
-    padding: 1em 10rem;
-    font-family: 'Gamja Flower', cursive;
+    padding: 1.5em 10rem;
+    font-family: 'Bad Script', cursive;
     font-size: 2rem;
     font-weight: normal;
     width: 100%;
     line-height: 1em;
     left: 0;
+    top: 0;
 }
 
 #menu{
@@ -45,12 +52,17 @@ a:hover{
     cursor: pointer;
 }
 
+.close a:hover{
+    text-decoration: none;
+    color: inherit;
+}
+
 .close:before, .close:after {
   float: right;
   content: ' ';
   height: 33px;
   width: 2px;
-  background-color: #333;
+  background-color: #0666FF;
 }
 .close:before {
   transform: rotate(45deg);
@@ -62,58 +74,89 @@ a:hover{
 #first{
     width: 100hw;
     height: 100vh;
-    background-color: white;
     font-family: 'Lato', sans-serif;
     font-weight: 700; 
     font-size: 3em;
 }
 
-.hover_img {
+#emoji{
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+}
+
+@-moz-keyframes spin { 
+    50% { -moz-transform: rotate(20deg); } 
+    100% { -moz-transform: rotate(0deg); } 
+}
+@-webkit-keyframes spin { 
+    50% { -webkit-transform: rotate(20deg);}
+    100% { -webkit-transform: rotate(20deg);} 
+}
+@keyframes spin {
+    50% { -webkit-transform: rotate(20deg); transform:rotate(20deg); } 
+    100% { -webkit-transform: rotate(0deg); transform:rotate(0deg); } 
+}
+
+#emoji:hover{
+    -webkit-animation:spin .25s linear infinite;
+    -moz-animation:spin .25s linear infinite;
+    animation:spin .25s linear infinite;
+}
+
+.myVid{
     position: absolute;
-    margin: auto 10rem;
-    height: 200px;
+    right: 2em;
     top: 50%;
-    transform: translateY(-100px);
+    z-index: 0;
+    transform: translateY(-50%);
+     -webkit-filter: grayscale(80%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(80%);
 }
 
-.hover_img a{
-    position: relative;
-}
-
-.hover_img a span{
+.hover_img  {
     position: absolute;
-    display: none;
-    z-index: 99;
-}
-
-.hover_img a:hover span{
-    display: flex;
-}
-
-#helen{
-    display: inline-block;
-    position: relative;
     z-index: 1;
+    margin: auto 10rem; 
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: default;
+   
 }
 
-#helen:after{
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 10px;
-    right: -10px;
-    height: 13px;
-    width: 100%;
-    z-index: -1;
-    background:  #eeaa66;
+.hover_img#top{
+    z-index: 3;
+}
+
+#top > span > #text{
+    opacity: 0;
+}
+
+#bottom{
+     color: #f35626;
+  background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 20s infinite linear;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
 }
 
 .menuoverlay{
-    background-color: bisque;
+    background: rgb(238,202,102);
+background: linear-gradient(135deg, rgba(238,202,102,1) 0%, rgba(238,168,102,1) 66%);
     position: fixed;
     width: 100vw;
     height: 100vh;
     left: 0;
+    top: 0;
     z-index: 100;
     display: none;
     padding: 2em;
@@ -121,7 +164,7 @@ a:hover{
     font-weight: 700;
 }
 
-ul{
+.menuoverlay ul{
     list-style-type: none;
     cursor: pointer;
     max-width: fit-content;
@@ -131,27 +174,9 @@ li{
     margin-bottom: 1rem;
 }
 
-#second{
-    background-color: darkgrey;
-    background-color: seashell;
-    background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-}
-
-
-.projImg{
-    width: 100%;
-    object-fit: contain;
-    border-radius: 1em;
-}
-
-#smith-container{
-     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(221,221,221,1) 0.1%, #bbb 90% );
-}
-#smithsonian{
-    object-fit: contain;
-    height: 200px;
-    padding: 1em;
+#current{
+    color: white;
+    text-decoration: underline;
 }
 
 .arrow,
@@ -163,7 +188,7 @@ li{
 .arrow {
   width: 40px;
   height: 40px;
-  top: 80%;
+  top: 90%;
   margin: -20px 0 0 -20px;
   -webkit-transform: rotate(45deg);
   border-left: none;
@@ -200,40 +225,131 @@ li{
 .content{
     width: 80%;
     height: 100%;
-    margin: 0 auto;
-    padding-top: 7em;
+    margin: 1em 10em;
 }
 
-#wakeup{
-    border-radius: 50%;
+.content p{
+   font-size: 2em; 
+}
+
+.thumb{
+    position: absolute;
+    padding: 3em;
+    max-height: 100%;
+    z-index: 1;
+}
+.square{
+    padding-bottom: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.projHover{
+    position: absolute;
+    font-size: 2em;
+    font-weight: 900;
+    z-index: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
-#third{
-    background-color: white;
+#sq4 > .projHover {
+    top: 50%;
+    z-index: 999;
 }
 
-#fourth{
-    background-color: antiquewhite;
+#category{
+    font-size: 0.5em;
+    color: grey;
+    font-weight: 400;
+    margin: 0;
+}
+
+#sq1{
+    background-image: url("../img/bg.png");
+    background-repeat: repeat;
+}
+
+#smithsonian{
+    padding-left: 50%;
+    height: 50%;
+    top: 50%;
+}
+
+
+
+#about{
+    margin-top: 7em;
 }
 
 .me{
     width: 100%;
 }
 
-#fifth{
-    background-color: white;
+#bio{
+    padding: 0 3em;
 }
 
-.insta{
-    
+.resumeBtn{
+    border-style: solid;
+    border-radius: 1em;
+    border-color: #0666FF;
+    color: #0666FF;
+    max-width: 100px;
+    margin: 2em 0;
+    text-align: center;
+}
+
+.social{
+    padding: 0;
+}
+
+.social li{
+    display: inline-block;
+    margin-right: 1em;
+    text-align: center;
 }
 
 .page-footer{
-    padding: 1rem;
-    background-color: #eeaa66
+    background-color: grey;
+    color: white;
+    left: 0;
 }
 
+.footer-copyright{
+    padding:1em 1.5em;
+}
+
+#wal{
+    margin-top: 7rem;
+    font-size: .5rem;
+}
+
+
+
+@media only screen 
+and (max-device-width: 600px)
+ {
+     #topbar{
+         padding: 1rem;
+     }
+     .hover_img {
+        position: absolute;
+        margin: auto 1rem;
+        font-size: 2rem;
+        height: 200px;
+        top: 50%;
+        transform: translateY(-100px);
+    }
+    .menuoverlay{
+        padding: 2rem 0;
+         text-align: center;
+     }
+     .close{
+         padding-right: 1em;
+     }
+     
+     #wal{
+         1rem=12px;
+     }
+}
 
