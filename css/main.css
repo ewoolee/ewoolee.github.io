@@ -1,17 +1,19 @@
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
 
-html, body{
-    width: 100vw;
+
+html{
+    width: 100%;
     height: 100vh;
     margin:0;
+    padding: 0;
 }
 
 body{
+    min-height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
     font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
 }
 
 a{
@@ -27,11 +29,11 @@ a:hover{
 #topbar {
     position: fixed;
     z-index: 99;
-    padding: 1.5em 10rem;
+    padding: 1em 10rem;
     font-family: 'Bad Script', cursive;
     font-size: 2rem;
     font-weight: normal;
-    width: 100%;
+    width: 100vw;
     line-height: 1em;
     left: 0;
     top: 0;
@@ -45,31 +47,15 @@ a:hover{
     cursor: pointer;
 }
 
-.close{
-  float: right;
-  width: 32px;
-  height: 32px;
+.closeBtn{
+  text-align: right;
+    width: 100%;
+    font-size: 1em;
     cursor: pointer;
+    color: white !important;
+    font-weight: normal;
 }
 
-.close a:hover{
-    text-decoration: none;
-    color: inherit;
-}
-
-.close:before, .close:after {
-  float: right;
-  content: ' ';
-  height: 33px;
-  width: 2px;
-  background-color: #0666FF;
-}
-.close:before {
-  transform: rotate(45deg);
-}
-.close:after {
-  transform: rotate(-45deg);
-}
 
 #first{
     width: 100hw;
@@ -77,12 +63,36 @@ a:hover{
     font-family: 'Lato', sans-serif;
     font-weight: 700; 
     font-size: 3em;
+    top:0;
+}
+
+.vignette{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width:50%;
+    height: 90%;
+    background-color: #e8e7e2;
+}
+
+.landingContent{
+    margin: 8rem auto auto 10rem;
+    width: 80%;
+    cursor: default;
+}
+
+
+.bottomLeft{
+    padding-right: 2em;
 }
 
 #emoji{
+    position: absolute;
+    z-index: 99;
     -webkit-animation:spin 1s linear infinite;
     -moz-animation:spin 1s linear infinite;
     animation:spin 1s linear infinite;
+    margin-right: 1rem;
 }
 
 @-moz-keyframes spin { 
@@ -105,31 +115,23 @@ a:hover{
 }
 
 .myVid{
-    position: absolute;
-    right: 2em;
-    top: 50%;
-    z-index: 0;
-    transform: translateY(-50%);
-     -webkit-filter: grayscale(80%); /* Safari 6.0 - 9.0 */
     filter: grayscale(80%);
+    max-width: -webkit-fill-available; 
+    max-width: -moz-available;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.hover_img  {
-    position: absolute;
-    z-index: 1;
-    margin: auto 10rem; 
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: default;
-   
+.hover_img{
+    position:absolute;
 }
 
-.hover_img#top{
-    z-index: 3;
-}
-
-#top > span > #text{
+#top > #text{
     opacity: 0;
+}
+
+#shortbio{
+    font-size: 1rem;
+    font-weight: normal;
 }
 
 #bottom{
@@ -149,10 +151,8 @@ a:hover{
   }
 }
 
-.menuoverlay{
-    background: rgb(238,202,102);
-background: linear-gradient(135deg, rgba(238,202,102,1) 0%, rgba(238,168,102,1) 66%);
-    position: fixed;
+.menuoverlay{    
+    position: sticky;
     width: 100vw;
     height: 100vh;
     left: 0;
@@ -164,19 +164,35 @@ background: linear-gradient(135deg, rgba(238,202,102,1) 0%, rgba(238,168,102,1) 
     font-weight: 700;
 }
 
-.menuoverlay ul{
+.menubg{
+    width: inherit;
+    height: inherit;
+    position:absolute;
+     background:rgba(250,35,22,0.7);
+    background-image: url("https://66.media.tumblr.com/9951ca2e7e884a48ca5b5269f5514cd6/tumblr_orh7h7ephj1ve5gdao1_500.gif");
+    background-blend-mode: screen;
+    background-size: cover;
+    left: 0;
+    top: 0;
+    z-index: -9;
+    opacity: 0.7;
+}
+
+#menuItems{
+    text-align: center;
     list-style-type: none;
     cursor: pointer;
     max-width: fit-content;
 }
 
-li{
+#menuItems li{
+    color: white;
     margin-bottom: 1rem;
 }
 
 #current{
-    color: white;
     text-decoration: underline;
+    cursor: default;
 }
 
 .arrow,
@@ -193,8 +209,9 @@ li{
   -webkit-transform: rotate(45deg);
   border-left: none;
   border-top: none;
-  border-right: 2px #000 solid;
-  border-bottom: 2px #000 solid;
+  border-right: 2px #FA2316 solid;
+  border-bottom: 2px #FA2316 solid;
+    z-index: 99;
 }
 
 .arrow:before {
@@ -205,8 +222,8 @@ li{
   margin: -10px 0 0 -10px;
   border-left: none;
   border-top: none;
-  border-right: 1px #000 solid;
-  border-bottom: 1px #000 solid;
+  border-right: 1px #FA2316 solid;
+  border-bottom: 1px #FA2316 solid;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-name: arrow;
@@ -225,64 +242,79 @@ li{
 .content{
     width: 80%;
     height: 100%;
-    margin: 1em 10em;
+    margin: 1em auto;
 }
 
-.content p{
-   font-size: 2em; 
+#sectionHeading{
+   font-size: 2rem; 
+    margin: 2em 0;
+    font-weight: 900;
+}
+
+.projects{
+    margin-bottom: 3em;
+    position: relative;
+}
+
+.leftCol{
+    padding-right: 1em;
 }
 
 .thumb{
-    position: absolute;
-    padding: 3em;
-    max-height: 100%;
+    max-height: -webkit-fill-available;
+    max-height: -moz-available; 
     z-index: 1;
-}
-.square{
-    padding-bottom: 100%;
-    overflow: hidden;
-    position: relative;
 }
 
 .projHover{
     position: absolute;
-    font-size: 2em;
-    font-weight: 900;
+    font-size: 2rem;
+    font-weight: 700;
     z-index: 0;
     width: 100%;
 }
 
-#sq4 > .projHover {
-    top: 50%;
-    z-index: 999;
-}
 
 #category{
-    font-size: 0.5em;
+    font-size: 1rem;
     color: grey;
     font-weight: 400;
     margin: 0;
 }
 
-#sq1{
-    background-image: url("../img/bg.png");
-    background-repeat: repeat;
+#wake{
+    width: 60%;
+    right: 0;
+}
+
+.projects li{
+    list-style: none;
+    display: inline-block;
 }
 
 #smithsonian{
-    padding-left: 50%;
-    height: 50%;
-    top: 50%;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
+.projContent{
+    width: 70%;
+    margin: 3em auto;
+    padding: 0 4em;
+    background: white;
+    font-family: "Lora", serif;
+}
 
+.projContent > col{
+         position: relative;
+}
 
 #about{
     margin-top: 7em;
 }
 
 .me{
-    width: 100%;
+    height: 70%;
 }
 
 #bio{
@@ -292,8 +324,8 @@ li{
 .resumeBtn{
     border-style: solid;
     border-radius: 1em;
-    border-color: #0666FF;
-    color: #0666FF;
+    border-color: #FA2316;
+    color: #FA2316;
     max-width: 100px;
     margin: 2em 0;
     text-align: center;
@@ -310,46 +342,224 @@ li{
 }
 
 .page-footer{
-    background-color: grey;
-    color: white;
+    background-color: #cdd6d0;
     left: 0;
+    margin-top: 4em;
 }
 
 .footer-copyright{
     padding:1em 1.5em;
 }
 
+.projContainer{
+    margin-top: 4em;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
 #wal{
-    margin-top: 7rem;
-    font-size: .5rem;
+    font-family: 'Lora', serif;
+    margin: 5rem auto auto auto;
+    
+}
+
+.projContent h2{
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+}
+
+.heroText{
+    position:absolute;
+    font-size: 1.5em;
+}
+
+#walText{
+    top: 100%;
+    transform: translateY(-100%);
+    right: 0;
+    text-align: right;    
+}
+
+#underline{
+     -webkit-text-decoration: #FA2316 solid underline;
+  text-decoration: #FA2316 solid underline;
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink;
+    font-weight: 700;
+}
+
+/**Wake Up project page**/
+.discus{
+    font-family: 'Lora', serif;
+}
+#wakeup{
+    right: 0;
+    top: 1.5em;
+    transform: none;
+    text-align: left;
+    width: 50%;
+}
+
+/*Smithsonian project page*/
+
+.usability ul{
+    list-style: none;
+}
+
+.usability li{
+    display: inline-block;
+    margin-right: 2em;
+}
+
+.chart{
+    margin: 2em auto;
+}
+
+/**Watch and Learn**/
+.overview{
+    width: 100%;
+    background-color: #DCD3D4;
+    margin: 0 auto;
+    padding: 2em 4em;
+}
+
+.section{
+    margin-top: 2em;
+}
+
+#teammate{
+    font-weight: bold;
+}
+
+.caption{
+    font-family: "Lato", sans-serif;
+    color: grey;
+    margin: 2em auto;
+    font-size: .8em;
+}
+
+.persona{
+    border-style: solid;
+    border-color: #DCD3D4;
+    padding: 2em;
+    border-radius: 1em;
+}
+
+.jessica{
+    -webkit-clip-path: circle(35.1% at 55% 35%);
+    clip-path:circle(22.1% at 53% 35%);
+}
+
+.palette{
+    height: 50px;
+    margin-bottom: 1em;
+}
+
+#orange{
+    background-color: orange;
+}
+#orange2{
+    background-color: rgb(253,124,44);
+}
+#dkorange{
+    background-color: rgb(195,77,0);
+}
+
+#grey{
+    background-color: #d3d3d3
+}
+
+#black{
+    background-color: black;
+}
+#white{
+    border-style: solid;
+    border-color: black;
+}
+
+#takeaway{
+    font-weight: bold;
+}
+
+#projectNav{
+    margin: 4em 2em;
+}
+
+#backTo{
+    text-align: center;
+}
+
+#next{
+    text-align: right;
+}
+
+ #prev span, #next span{
+         color: #FA2316
 }
 
 
-
+/**mobile**/
 @media only screen 
-and (max-device-width: 600px)
+and (max-width: 600px)
  {
      #topbar{
          padding: 1rem;
      }
-     .hover_img {
-        position: absolute;
-        margin: auto 1rem;
-        font-size: 2rem;
-        height: 200px;
-        top: 50%;
-        transform: translateY(-100px);
-    }
+     
+     .landingContent{
+         margin: 5em auto;
+     }
+     #first{
+         font-size: 1.4em;
+     }
+     
+     .myVid{
+     }
+     
     .menuoverlay{
         padding: 2rem 0;
          text-align: center;
      }
-     .close{
+     .closeBtn{
          padding-right: 1em;
      }
-     
+     .projContent > col{
+         position: relative;
+     }
+     #wake{
+         left:0;
+         top:100%;
+         width: 100%;
+     }
      #wal{
          1rem=12px;
+     }
+     
+     .heroText{
+         text-align: left;
+         position: initial;
+        font-size: .7em;
+    }
+     #wakeup{
+         width: 100%;
+     }
+     
+     .overview{
+         padding: 2em 2em;
+     } 
+     
+     .projContent{
+        width: 100%;
+        padding: 0 1em;
+        background: white;
+    }
+     
+     #prev, #backTo, #next{
+         margin-bottom: 2em;
+     }
+     
+     #bio{
+         padding: 0;
      }
 }
 

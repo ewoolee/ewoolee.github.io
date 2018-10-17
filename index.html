@@ -2,104 +2,146 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Bad+Script|Lato:400,700,900" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
         <link rel="stylesheet" href="css/main.css">
         <link rel="icon" href="img/logo.png">
         <title>Helen Lee</title>
     </head>
     <body>
-        <div class="container-fluid" id="first">
-            <div id="topbar">
+        <div class="menuoverlay">
+            <div class="menubg"></div>
+            <div class="closeBtn"><a>✖</a></div>
+            <ul id=menuItems>
+                <li id="home">Home</li>
+                <a href="#works"><li id="works">Works</li></a>
+                <a href="about.html"><li>About</li></a>
+            </ul>
+        </div>
+        <div id="topbar">
                 <a href="index.html"><span id="title">Helen Lee</span></a>
                 <span id="menu">Menu</span>
             </div>
+        <div class="container-fluid" id="first">
+            <div class="vignette"></div>
             
-            <div class="hover_img" id="top">
-                <span>
-                    <span id="text">Hi there</span>
-                    <span id="emoji">👋</span><br>
-                    <p id="text">I'm Helen, a UX designer with a focus on web and a budding front end developer.</p>
-                </span>
-            </div>
-            <div class="hover_img">
-                <div id="bottom">
-                    <span>Hi there<br></span>
-                    <span>I'm Helen, a UX designer with a focus on web and a budding front end developer.</span>
+            <div class="landingContent">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 order-lg-2">
+                         <video class="myVid" autoplay muted loop playsinline>
+                            <source src="img/me.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                
+                    <div class="col-sm-12 col-lg-6 order-lg-1">
+                        <div class="hover_img" id="top">
+                   
+                        <span id="text">Hi there —</span>
+                        <span id="emoji">👋</span><br>
+                        <span id="text">I'm Helen.</span>
+                        <p id="text">
+                            I am a UX designer with a cognitive science background who likes to wear many hats (👒research 🎩front-end 🧢fabrication).
+                        </p>
+                        </div>
+                        <div class="hover_img">
+                            <div class="bottomLeft">
+                            <div id="bottom">
+                                <span>Hi there —<br></span>
+                                <span>I'm Helen.</span>
+                            </div>
+                                <p id="shortbio">
+                                    I am a UX designer with a cognitive science background who likes to wear many hats (👒research 🎩front-end 🧢fabrication). Currently seeking full-time opportunities.
+                                </p>
+                            </div>
+                        </div>
+                    </div> 
+                    
                 </div>
             </div>
-            <video class="myVid" height="50%" autoplay muted loop playsinline>
-                <source src="img/me.mp4" type="video/mp4">
-            </video>
+           
             <a href="#second"><div class="arrow"></div></a>
             
-            <div class="menuoverlay">
-                <a class="close"></a>
-                <ul>
-                    <li id="home">Home</li>
-                    <a href="#works"><li id="works">Works</li></a>
-                    <a href="about.html"><li>About</li></a>
-                </ul>
-            </div>
+            
         </div>
         <div class="container-fluid" id="second">
             <div class="content">
-                <p>Works</p>
-                        <div class="row no-gutters">
-                            <div class="col-sm-12 col-lg 6">
-                                <div class="square" id="sq1">
-                                    <img class="img-fluid thumb" src="img/smithsonian.png">
-                                    <div class="projHover" id="smithsonian"><p id="category">UX Research</p>Smithsonian National Zoo</div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-lg-6">
-                                <div class="square" id="sq2">                           
-                                </div>
+                <p id="sectionHeading">Works</p>
+                    <div class="row projects">
+                        
+                        <div class="leftCol col-sm-12 col-lg 6" id="smith">
+                            <a>
+                           <ul>
+                               <li>
+                                <img class="img-fluid thumb" src="img/smithsonian.png">
+                               </li>
+                               <li>
+                                    <p id="category">UX Research</p>
+                                   <p id="smithsonian">
+                                       Smithsonian<br> National Zoo
+                                   </p>
+                               </li>
+                            </ul>
+                            </a>
+                            
+                            <!-- Modal-->
+                            <div class="modal fade" id="smithModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Under Construction</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Writeup is currently in progress. Please check back later :)
+      </div>
+      
+    </div>
+  </div>
+</div>
+                            <!--End Modal-->
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <a href="WatchAndLearn.html"><div>
+                                <img class="img-fluid thumb" src="img/Watch-and-Learn-mockup.png">
+                                <div class="projHover"><p id="category">Product Design</p>Watch And Learn</div>
+                            </div></a>
+                        </div>
+                    </div>
+                    <div class="row projects">
+                        <div class="leftCol col-sm-12 col-lg-6">
+                            <div class="square" id="sq3">
+
                             </div>
                         </div>
-                        <div class="row no-gutters">
-                            <div class="col-sm-12 col-lg-6">
-                                <div class="square" id="sq3">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-lg-6">
-                                <a href="WatchAndLearn.html"><div class="square" id="sq4">
-                                    <img class="img-fluid thumb" src="img/Watch-and-Learn-mockup.png">
-                                    <div class="projHover">Watch And Learn</div>
-                                </div></a>
-                            </div>
+                        <div class="col-sm-12 col-lg-6">
+                            
                         </div>
-                        <div class="row no-gutters">
-                            <div class="col-sm-12 col-lg-6">
-                                <div class="square" id="sq5">
-                                    <img class="img-fluid thumb" src="img/friend-crush.png">
-                                    <div class="projHover" id="friend"><p id="category">Product Design</p>Friend Crush</div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-lg-6">
-                                <div class="square" id="sq6">
-                                    
-                                </div>
-                            </div>
+                    </div>
+                    <div class="row projects">
+                        <div class="leftCol col-sm-12 col-lg-6">
+                            <a href="WakeUp.html">
+                                <div class="projHover" id="wake"><p id="category">Product Design</p>Wake Up: Discus Edition</div>
+                                <img class="img-fluid thumb" src="img/Wakeup.png">
+                                
+                            </a>
                         </div>
+                        <div class="col-sm-12 col-lg-6">
+                            
+                        </div>
+                    </div>
                     
             </div>
         </div>
-        <!--
-        <div class="container-fluid" id="third">
-            <div class="content">
-                <p>Miscellaneous</p>
-                <span>A collection of smaller projects that I did for classes or just for fun</span>
-            </div>
-        </div>
-        -->
         
         <footer class="page-footer font-small">
             <div class="footer-copyright pt-3">
-                © Helen Lee 2018. &emsp; Made with indecisiveness and the love to overcome it in Yay Area❤️🌉
+                © Helen Lee 2018. &emsp; Made with lots of experimentation and patience it in Yay Area❤️🌉
             </div>
         </footer>
     </body>

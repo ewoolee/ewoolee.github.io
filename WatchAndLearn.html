@@ -2,7 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/css?family=Bad+Script|Lato:400,700" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Bad+Script|Lato:400,700|Lora" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
@@ -11,51 +12,224 @@
         <title>Helen Lee - Watch and Learn</title>
     </head>
     <body>
-        <div class="container-fluid">
-            <div id="topbar">
+        <div class="menuoverlay">
+            <div class="menubg"></div>
+            <div class="closeBtn"><a>✖</a></div>
+            <ul id=menuItems>
+                <li id="home"><a href="index.html">Home</a></li>
+                <a href="index.html#second"><li id="works">Works</li></a>
+                <a href="about.html"><li>About</li></a>
+            </ul>
+        </div>
+        <div id="topbar">
                 <a href="index.html"><span id="title">Helen Lee</span></a>
                 <span id="menu">Menu</span>
             </div>
-             <div class="menuoverlay">
-                <a href="#" class="close"></a>
-                <ul>
-                    <a href="index.html"><li id="home">Home</li></a>
-                    <a href="index.html#second"><li id="works">Works</li></a>
-                    <a href="#"><li id="about">About</li></a>
-                </ul>
-            </div>
-            <div class="content" id="wal">
-                <div class="row">
+        <div class="projContainer">            
+             
+            <div id="wal">
+                <div class="row projContent">
                     <div class="col">
-                        <h1>Watch and Learn</h1>
+                        <img class="img-fluid" src="img/Watch-and-Learn-mockup.png">
+                        <p class="heroText" id="walText"><span id="underline">Watch and Learn</span>:<br> a supplementary language<br> learning tool for anime lovers</p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row overview">
+                    <h2>Learn from your favorite anime</h2>
+                        <p>
+                        Helping anime lovers supplement their language learning journey with their favorite form of entertainment.
+                        </p>
+                </div>
+                <div class="row projContent" >
                     <div class="col">
-                        <p>Watch and learn is a supplementary language learning tool for people who like to watch anime.<br>This project was the final project for <a href="https://amypavel.com/teaching/cs160su18">User Interface Design and Development (CS 160)</a> at UC Berkeley, summer 2018. Brought to you by Team Rocket: Marinella Bohol, Christian Cayabyab, Shirley Li, Sanket Padmanabhan, and yours truly.</p>
-                        <p>The goal of this project was to create an application around the theme of storytelling, which was defined as "interfaces that engage the user in creating, viewing, sharing, or interpreting a story." </p>
+                        <p >This project was done as the final project for <span class="cl-effect-3"><a href="https://amypavel.com/teaching/cs160su18/">User Interface Design and Development (CS 160) at UC Berkeley, summer 2018</a></span>. The goal was to create an application around the theme of storytelling, or "[engaging] the user in creating, viewing, sharing, or interpreting a story."</p>
+                    </div>  
+                </div>
+                
+                <div class="row projContent" >
+                    <div class="col">
+                        <h2>Team Rocket (Pokemon, anyone?)</h2>
+                        <p id="section">I worked with Marinella Bohol, Christian Cayabyab, Shirley Li, and Sanket Padmanabhan under the name Team Rocket.  While all of us were involved in the entire design process from initial user interviews to development together, here are some noteworthy roles and contributions of each individuals: </p>
+
+                        <ul>
+                            <li>
+                                <span id="teammate">Marinella</span>: project manager, initial wireframes, quiz feedback screen
+                            </li>    
+                            <li>
+                                <span id="teammate">Christian</span>
+                                : cognitive walkthrough, implementation of the initial assessment screen.
+                            </li>
+                            <li>
+                                <span id="teammate">Shirley</span>: logo, overall visual design, mockup
+                            </li>
+                            <li>
+                                <span id="teammate">Sanket</span>: Tensorflow machine learning, Django 
+                            </li>
+                            <li>
+                                <span id="teammate">Helen (me!)</span>: persona, implementation of popup interaction with YouTube API, CSS
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <h2>Brainstorming</h2>
-                    </div>
-                </div>
-                <div class="row">
+            
+                <div class="row projContent">
                     <div class="col-sm-12 col-lg-6">
-                        <img src="img/wal-brainstorm.jpeg" id="walBrainstorm">
+                         <h2>Brainstorming</h2>
+                        <p>We began by brainstorming to explore how we might involve storytelling in our solution, encouraging quantity of ideas regardless of how wild or crazy it might sound. We then used affinity mapping to group ideas, which helped us discover themes such as learning, creativity support tools, film, stars (astrology), and scrapbooking to name a few. After voting among ourselves, we decided to pursue the idea of developing a language learning tool based on an archive of stories shared by users in different languages with varying difficulty.</p>
+                               
                     </div>
+                    
                     <div class="col-sm-12 col-lg-6">
-                        <p>We began by brainstorming</p>
+                        <img class="img-fluid" src="img/wal-brainstorm.jpeg" id="walBrainstorm">
+                        <div class="caption">
+                            Ideas from brainstorming, grouped into categories. Ideas include an app that allows users to share a story and invite others to collaboratively create visuals that go with it, and an ocean exploration device with photo sharing ability.
+                        </div>
+                    </div>
+                    
+                </div>
+            
+                <div class="row projContent">
+                    <div class="col">
+                        <h2>Users </h2>
+                        <p>
+                         Through document analysis and initial interviews with people who have been learning a language, we found that they enjoy learning by consuming content (e.g. watching television or movies). We saw a potential area for storytelling in the interviewees’ desire to communicate with and understand the stories of people around them. From these insights, we settled on using anime to deliver materials for language learners because it is a form of media that has storylines and characters that viewers can invest in. We further narrowed down our user group into people who already have a primary means of learning a language or are already at a basic proficiency since we needed to balance the anime watching experience with the amount of material that can be presented to a user during their viewing. 
+                        </p>
+                        <div class="persona">
+                        <h3>Persona</h3>
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-6">
+                                <img class="img-fluid jessica" src="https://masmedicalstaffing.com/wp-content/uploads/2017/06/7-Easy-Ways-to-Improve-Your-Physical-Therapist-Resume.jpg">
+                                
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <p>Name: Jessica</p>
+                                <p>Age: 27</p>
+                                <p>Occupation: Physical Therapist</p>
+                            </div>
+                        <div class="row">
+                            <div class="col">
+                            Goals:<ol>
+                                    <li>To be able to communicate with more of her patients</li>
+                                    <li>
+                                        To travel to Japan next year
+                                    </li>
+                                </ol> 
+                                <p>
+                                    Pains: Paola works at a hospital in Oakland, where she treats many patients who speak Japanese and limited English. She learned Japanese in high school and wants to brush up on it and improve her Japanese because she wants to connect with her patients on a more personal level, but she doesn’t have time and money to spend on private lessons or formal classes. Being an avid Netflix watcher and podcast listener, she wishes learning Japanese could be just as fun and engaging.
+                                </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <p> After targeting anime watcher, we thought it makes the most sense to have the app teach Japanese. However,  none of us spoke the language; so we decided to use English because it would be easier for us to design a curriculum and easier to find and work with dataset for machine learning.</p>  
+                    </div>
+                    
+                </div>
+                
+                <div class="row projContent">
+                    <row class="col">
+                        <h2>Wireframes </h2>
+                        <img class="img-fluid" src="img/wal_wireframe.jpg">
+                        <div class="caption">
+                            Wireframes of our main interaction: initial assessment, recommendations, and post-episode assessment
+                        </div>
+                    <div class="row">
+                        <div class="col">
+                            We then derived user needs from the interviews and document analysis, including the need for users to assess their  progress, the need for a balance between immersion and structured lesson plans, and the need for users to set their own pace. We then transformed these needs into wireframes. Initial assessment would ask users to self-report their proficiency level, which would be matched with anime series that machine learning classified as being appropriate for their proficiency. You can find a detailed description of how we incorporated machine learning on our final report <span id="underline"><a href="Team3_Team%20Rocket_Final%20Report.pdf" target="_blank">here</a></span>. Once the user chooses one of the recommended anime and watches an episode, they will be presented with a quiz to assess what they learned.
+                        </div>
+                    </div>
+                    </row>
+                </div>
+                
+                <div class="row projContent">
+                    <div class="col">
+                        <h2>Wizard of Oz Evaluation</h2>
+                        <img class="img-fluid" src="img/wal_paper.PNG">
+                        <div class="caption">Paper prototype of episode playback experience</div>
+                        <p>Conducting wizard of Oz evaluations with our classmates revealed that users want to see a variety of questions (e.g. vocabulary, plot, grammar). We also explored whether users would like to see quick tips while watching anime, and the general consensus was that they would like to have the option to view it or not - so we added a little pop-up at the top of the playback screen that can be tapped to view quick tips about words and phrases involved at the current playback time. Some users suggested we have a list of words to look out for before watching an episode, so we decided to incorporate a pre-episode vocabulary list detailing what the pop-ups would show throughout the episode.</p>
                     </div>
                 </div>
                 
+                <div class="row projContent">
+                    <div class="col">
+                        <h2>Visual Identity</h2>
+                        <div class="row palette">
+                            <div class="col-2" id="orange"></div>
+                            <div class="col-2" id="orange2"></div>
+                            <div class="col-2" id="dkorange"></div>
+                            <div class="col-2" id="grey"></div>
+                            <div class="col-2" id="black"></div>
+                            <div class="col-2" id="white"></div>
+                            
+                        </div> 
+                        <div class="row">
+                            
+                            <div class="col-sm-12 col-lg-9">
+                                <p>We chose an orange color scheme because it captures the bright and energetic concept of anime. Light orange is used for UI elements, the middle orange for the logo, and the darker orange for user avatar.</p>
+                                <p>The avatar will change every time the user levels up (i.e. collects a certain amount of experience through quizzes), becoming more expressive and scholarly. 
+Having an avatar that changes according to the user progress embeds a story in their pursuit of fluency. </p>
+                            </div>
+                            <div class="col-sm-12 col-lg-3">
+                                <img class="img-fluid" src="img/wal_logo.png">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img class="img-fluid" src="img/lvl1.png">
+                            </div>
+                            <div class="col">
+                                <img class="img-fluid" src="img/lvl5.png">
+                            </div>
+                            <div class="col">
+                                <img class="img-fluid" src="img/lvl10.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
+                <div class="row projContent">
+                    <div class="col">
+                        <h2>Implementation</h2>
+                        We implemented the web application in HTML, CSS, JavaScript and Django. 
+                    </div>
+                </div>
+                
+                <div class="row projContent">
+                    <div class="col">
+                        <h2>Final Prototype</h2>
+                        <video muted width="100%" controls="true"><source src="img/wal_demo.mp4" type="video/mp4"></video>
+                    </div>
+                </div>
+                
+                <div class="row projContent">
+                    <div class="col">
+                        <h2>Takeaways</h2>
+                        <ol>
+                            <li><p id="takeaway">Don't be too quick to dismiss any ideas in the early phases.</p></li>
+                            <li><p id="takeaway">Strangers are more willing to help than you think.</p></li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="row" id="projectNav">
+                    <div class="col-sm-12 col-lg-4" id="prev">
+                    <a href="Smithsonian.html"><span>←</span> Usability Report: Smithsonian National Zoo </a>
+                    </div>
+                    
+                    <div class="col-sm-12 col-lg-4 order-lg-3" id="next">
+                    <a href="WakeUp.html">Wake Up: Discus Edition <span>→</span></a>
+                    </div>
+                    
+                    <div class="col-sm-12 col-lg-4 order-lg-2" id="backTo">
+                        <a href="index.html#second">back to list of projects</a>
+                    </div>
+                </div>                
             </div>
         </div>
         <footer class="page-footer font-small">
             <div class="footer-copyright pt-3">
-                © Helen Lee 2018. &emsp; Made with indecisiveness and the love to overcome it in Yay Area❤️🌉
+                © Helen Lee 2018. &emsp; Made with lots of experimentation and patience it in Yay Area❤️🌉
             </div>
         </footer>
     </body>
